@@ -1,53 +1,56 @@
-/* Estilo geral */
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f3f3f3;
     margin: 0;
+    font-family: Arial, sans-serif;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    flex-direction: column; /* Organiza em coluna */
+    align-items: center; /* Centraliza horizontalmente */
     height: 100vh;
+    background-color: #f4f4f9;
 }
 
-/* Container principal */
-.login-container {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    width: 300px;
+/* Logo acima do bloco */
+.logo-container {
+    margin-top: 100px;
+    margin-bottom: 20px; /* Espaço entre a logo e o bloco */
+    margin-bottom: 50px;
 }
 
-/* Estilo da logo */
 .logo {
-    width: 150px;
-    margin-bottom: 20px;
+    width: 570px; /* Ajusta o tamanho da logo */
 }
 
-/* Estilo do formulário */
+/* Bloco de login */
+.login-container {
+    width: 510px;
+    height: 250px;
+    padding: 30px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centraliza os campos verticalmente */
+    align-items: center; /* Centraliza os campos horizontalmente */
+}
+
 .login-form {
+    width: 100%; /* Formulário ocupa toda a largura do bloco */
     display: flex;
     flex-direction: column;
 }
 
-/* Estilo dos campos de entrada */
+/* Campos de entrada */
 .form-group {
-    margin-bottom: 15px;
-    text-align: left;
-}
-
-label {
-    font-size: 14px;
-    color: #333;
+    margin-bottom: 20px;
+    width: 100%; /* Campos ocupam toda a largura */
 }
 
 input {
     width: 100%;
     padding: 10px;
-    font-size: 14px;
+    font-size: 16px;
     border: 1px solid #ccc;
-    border-radius: 4px;
+    border-radius: 5px;
     box-sizing: border-box;
 }
 
@@ -55,17 +58,20 @@ input {
 .button-group {
     display: flex;
     justify-content: space-between;
-    margin-top: 10px;
+    width: 100%; /* Botões ocupam toda a largura do formulário */
 }
 
 .btn {
-    padding: 10px 15px;
-    font-size: 14px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+    flex: 1;
+    padding: 12px 0;
+    font-size: 16px;
     color: white;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 0 5px; /* Espaço entre os botões */
+    transition: background-color 0.3s ease;
 }
 
 .btn:hover {
@@ -73,9 +79,9 @@ input {
 }
 
 .btn {
-    background-color: #9B9B9B; /* Azul UFSM */
+    background-color: #6c757d; /* Azul UFSM */
 }
 
 .btn-secondary {
-    background-color: #9B9B9B; /* Cinza secundário */
+    background-color: #6c757d; /* Cinza secundário */
 }
