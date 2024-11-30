@@ -1,0 +1,81 @@
+/* Estilo geral */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f3f3f3;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Container principal */
+.login-container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 300px;
+}
+
+/* Estilo da logo */
+.logo {
+    width: 150px;
+    margin-bottom: 20px;
+}
+
+/* Estilo do formulário */
+.login-form {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Estilo dos campos de entrada */
+.form-group {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+label {
+    font-size: 14px;
+    color: #333;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+/* Botões */
+.button-group {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.btn {
+    padding: 10px 15px;
+    font-size: 14px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    color: white;
+}
+
+.btn:hover {
+    opacity: 0.9;
+}
+
+.btn {
+    background-color: #9B9B9B; /* Azul UFSM */
+}
+
+.btn-secondary {
+    background-color: #9B9B9B; /* Cinza secundário */
+}
