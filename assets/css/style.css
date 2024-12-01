@@ -32,6 +32,7 @@ body {
     box-sizing: border-box; /* Inclui padding no cálculo do tamanho */
 }
 
+/* Formulário */
 .login-form {
     width: 100%; /* Formulário ocupa toda a largura do bloco */
     display: flex;
@@ -42,6 +43,7 @@ body {
 .form-group {
     margin-bottom: 20px;
     width: 100%; /* Campos ocupam toda a largura */
+    text-align: center;
 }
 
 input, select {
@@ -54,35 +56,20 @@ input, select {
 }
 
 /* Botões */
-.button-group {
-    display: flex;
-    justify-content: space-between;
-    width: 100%; /* Botões ocupam toda a largura do formulário */
-}
-
 .btn {
-    flex: 1;
-    padding: 12px 0;
-    font-size: 16px;
+    padding: 8px 16px; /* Ajuste de padding para se adequar ao texto */
+    font-size: 14px;
     color: white;
     background-color: #6c757d;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    margin: 0 5px; /* Espaço entre os botões */
     transition: background-color 0.3s ease;
+    white-space: nowrap; /* Impede a quebra de linha no botão */
 }
 
 .btn:hover {
     opacity: 0.9;
-}
-
-.btn {
-    background-color: #6c757d; /* Azul UFSM */
-}
-
-.btn-secondary {
-    background-color: #6c757d; /* Cinza secundário */
 }
 
 /* Container principal */
@@ -187,4 +174,67 @@ form .form-group input[type="date"] {
 /* Adiciona espaçamento entre os grupos */
 form .form-group {
     margin-bottom: 16px;
+}
+
+/* Container para a lista de agendamentos */
+#appointments-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+#appointments-table th, #appointments-table td {
+    padding: 12px;
+    text-align: center;
+    border: 1px solid #ccc;
+}
+
+.appointment-item {
+    border: 1px solid #ccc; /* Borda cinza ao redor de cada agendamento */
+    margin-bottom: 10px; /* Espaço entre os agendamentos */
+    border-radius: 5px; /* Bordas arredondadas */
+}
+
+.appointment-item td {
+    background-color: #fff; /* Cor de fundo para as células */
+}
+
+/* Seção de preferências alimentares */
+.preference-section {
+    margin-bottom: 20px;
+    font-size: 16px;
+}
+
+.preference-section label {
+    display: inline-block;
+    margin-right: 20px;
+}
+
+/* QR Code */
+.qr-code-container {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.qr-code-container img {
+    max-width: 100%;
+    height: auto;
+}
+
+button {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #28a745; /* Cor do botão */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px; /* Espaço acima do botão */
+}
+
+button:hover {
+    background-color: #218838; /* Cor do botão ao passar o mouse */
 }
