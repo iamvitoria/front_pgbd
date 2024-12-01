@@ -11,7 +11,6 @@ body {
 /* Logo acima do bloco */
 .logo-container {
     margin-top: 100px;
-    margin-bottom: 20px; /* Espaço entre a logo e o bloco */
     margin-bottom: 50px;
 }
 
@@ -21,8 +20,7 @@ body {
 
 /* Bloco de login */
 .login-container {
-    width: 510px;
-    height: 250px;
+    width: 510px; /* Ajusta a largura fixa */
     padding: 30px;
     background-color: white;
     border-radius: 10px;
@@ -31,6 +29,7 @@ body {
     flex-direction: column;
     justify-content: center; /* Centraliza os campos verticalmente */
     align-items: center; /* Centraliza os campos horizontalmente */
+    box-sizing: border-box; /* Inclui padding no cálculo do tamanho */
 }
 
 .login-form {
@@ -45,7 +44,7 @@ body {
     width: 100%; /* Campos ocupam toda a largura */
 }
 
-input {
+input, select {
     width: 100%;
     padding: 10px;
     font-size: 16px;
@@ -162,4 +161,30 @@ input {
 h1 {
     font-size: 24px;
     color: #333;
+}
+
+/* Ajusta largura e estilo de labels */
+form .form-group label {
+    display: block;
+    width: 100%; /* Ocupa o mesmo espaço que o campo */
+    font-family: Arial, sans-serif; /* Mesma fonte dos campos */
+    font-size: 16px; /* Altere conforme necessário */
+    margin-bottom: 8px;
+    color: #333; /* Cor harmoniosa */
+}
+
+/* Ajusta campos de seleção para a mesma largura que inputs de data */
+form .form-group select,
+form .form-group input[type="date"] {
+    width: 100%; /* Mesma largura */
+    padding: 8px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box; /* Garantir espaçamento interno correto */
+}
+
+/* Adiciona espaçamento entre os grupos */
+form .form-group {
+    margin-bottom: 16px;
 }
