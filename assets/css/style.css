@@ -66,11 +66,13 @@ input, select {
     cursor: pointer;
     transition: background-color 0.3s ease;
     white-space: nowrap; /* Impede a quebra de linha no botão */
+    width: 100%; /* Faz o botão preencher toda a largura disponível */
 }
 
 .btn:hover {
     opacity: 0.9;
 }
+
 
 /* Container principal */
 .container {
@@ -227,7 +229,7 @@ button {
     display: inline-block;
     padding: 10px 20px;
     font-size: 16px;
-    background-color: #28a745; /* Cor do botão */
+    background-color: #ccc; /* Cor do botão */
     color: white;
     border: none;
     border-radius: 5px;
@@ -236,5 +238,5 @@ button {
 }
 
 button:hover {
-    background-color: #218838; /* Cor do botão ao passar o mouse */
+    background-color: #ccc; /* Cor do botão ao passar o mouse */
 }
