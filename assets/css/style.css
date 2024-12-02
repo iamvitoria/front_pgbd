@@ -96,6 +96,10 @@ input, select {
     align-items: center;
     padding: 20px;
     box-sizing: border-box;
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
 }
 
 .profile-section {
@@ -108,6 +112,30 @@ input, select {
     height: 100px;
     border-radius: 50%;
     margin-bottom: 10px;
+}
+
+/* Menu com rolagem estilizada */
+.menu {
+    flex-grow: 1; /* Para que o menu ocupe o restante do espaço disponível */
+    overflow-y: auto; /* Ativa a barra de rolagem vertical */
+    max-height: calc(100vh - 150px); /* Ajusta o tamanho do menu (menos o espaço do perfil) */
+}
+
+/* Barra de rolagem estilizada */
+.menu::-webkit-scrollbar {
+    width: 8px; /* Largura da barra */
+}
+
+.menu::-webkit-scrollbar-thumb {
+    background-color: #888; /* Cor da barra */
+}
+
+.menu::-webkit-scrollbar-thumb:hover {
+    background-color: #555; /* Cor ao passar o mouse */
+}
+
+.menu::-webkit-scrollbar-track {
+    background-color: #f4f4f4; /* Cor do fundo do trilho */
 }
 
 .menu ul {
@@ -243,4 +271,19 @@ button {
 
 button:hover {
     background-color: #ccc; /* Cor do botão ao passar o mouse */
+}
+
+h2{
+    text-align: center;
+}
+
+.form-group textarea{
+    width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            height: 45px; /* Ajustado para o mesmo tamanho dos inputs */
+            resize: none; /* Impede redimensionamento */
 }
