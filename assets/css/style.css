@@ -85,6 +85,8 @@ input, select {
     width: 250px; /* Largura da sidebar */
     height: 100vh; /* Altura total da janela */
     background-color: #6c757d; /* Cor da sidebar */
+    overflow-y: auto; /* Permite rolagem vertical */
+    overflow-x: hidden; /* Evita rolagem horizontal */
     color: white; /* Cor do texto */
     position: fixed; /* Fixa a sidebar no canto esquerdo */
     top: 0;
@@ -135,6 +137,8 @@ input, select {
 
 /* Conteúdo principal */
 .main-content {
+    margin-left: 250px;
+    padding: 20px;
     flex: 1;
     display: flex;
     justify-content: center;

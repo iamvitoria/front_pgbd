@@ -1,12 +1,12 @@
 document.addEventListener("DOMContentLoaded", () => {
-    const loginButton = document.getElementById("login-button");
+    const loginButton = document.getElementById("student-button");
     if (loginButton) {
         loginButton.addEventListener("click", function (event) {
             event.preventDefault();
             window.location.href = "../index.html";
         });
     } else {
-        console.log("login-button não encontrado");
+        console.log("student-button não encontrado");
     }
 
     const payButton = document.getElementById("pay-button");
@@ -19,13 +19,13 @@ document.addEventListener("DOMContentLoaded", () => {
         console.log("pay-button não encontrado");
     }
 
-    const forgotPasswordButton = document.getElementById("forgot-password-button");
+    const forgotPasswordButton = document.getElementById("admin-button");
     if (forgotPasswordButton) {
         forgotPasswordButton.addEventListener("click", () => {
-            window.location.href = "./forgot-password.html";
+            window.location.href = "../admin.html";
         });
     } else {
-        console.log("forgot-password-button não encontrado");
+        console.log("admin-button não encontrado");
     }
 
     const recoverPasswordButton = document.getElementById("recover-password");
