@@ -257,20 +257,30 @@ form .form-group {
     height: auto;
 }
 
+/* Botões */
 button {
-    display: inline-block;
+    display: inline-block; /* Permite que os botões fiquem lado a lado */
     padding: 10px 20px;
     font-size: 16px;
-    background-color: #ccc; /* Cor do botão */
+    background-color: #333; /* Cinza escuro padrão */
     color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    margin-top: 20px; /* Espaço acima do botão */
+    margin: 0 5px; /* Espaço horizontal entre os botões */
 }
 
 button:hover {
-    background-color: #ccc; /* Cor do botão ao passar o mouse */
+    background-color: #ccc; /* Cinza claro ao passar o mouse */
+    color: black; /* Ajusta a cor do texto para contraste */
+}
+
+/* Centraliza os botões no contêiner */
+.buttons {
+    display: flex; /* Torna os botões flexíveis */
+    justify-content: center; /* Centraliza os botões horizontalmente */
+    gap: 10px; /* Espaçamento consistente entre os botões */
+    margin-top: 20px; /* Espaço acima dos botões */
 }
 
 h2{

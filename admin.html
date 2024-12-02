@@ -19,8 +19,7 @@
             </div>
             <nav class="menu">
                 <ul>
-                    <li><a href="pages/schedule-meal.html">Agendar Refeição</a></li>
-                    <li><a href="pages/menu.html">Cardápio</a></li>
+                    <li><a href="./admin.html">Agendar Refeição</a></li>
                     <li><a href="pages/appointments.html">Agendamentos</a></li>
                     <li><a href="pages/manage-restaurant.html">Gerenciar restaurantes</a></li>
                     <li><a href="pages/appointments.html">Capacidade de reserva</a></li>
@@ -35,9 +34,37 @@
 
         <!-- Conteúdo principal -->
         <main class="main-content">
-            <div class="welcome-section">
-                <img src="assets/img/logo.png" alt="Logo UFSM" class="logo">
-                <h1>Bem-vinda, Vitória!</h1>
+            <div class="logo-container">
+                <img src="./assets/img/logo.png" alt="Logo UFSM Digital" class="logo">
+            </div>
+
+            <div class="login-container">
+                <form class="login-form" onsubmit="generateReport(event)">
+                    <h2>Agendar refeições</h2>
+                    <select id="restaurant" name="restaurant">
+                        <option value="restaurante1">Restaurante 1</option>
+                        <option value="restaurante2">Restaurante 2</option>
+                    </select>
+
+                    <!-- Calendário da semana -->
+                    <div class="buttons">
+                        <button class="btn" onclick="showMenu('Segunda')">Segunda</button>
+                        <button class="btn" onclick="showMenu('Terça')">Terça</button>
+                        <button class="btn" onclick="showMenu('Quarta')">Quarta</button>
+                        <button class="btn" onclick="showMenu('Quinta')">Quinta</button>
+                        <button class="btn" onclick="showMenu('Sexta')">Sexta</button>
+                    </div>
+
+                    <!-- Cardápio e opções -->
+                    <div id="menu-section" class="menu-section">
+                        <h3 id="menu-day">Cardápio do Dia</h3>
+                        <ul id="menu-list"></ul>
+                        <div class="buttons">
+                            <button class="btn" onclick="scheduleDay()">Agendar Dia</button>
+                            <button class="btn" onclick="scheduleWeek()">Agendar Semana</button>
+                        </div>
+                    </div>
+                </form>
             </div>
         </main>
     </div>
