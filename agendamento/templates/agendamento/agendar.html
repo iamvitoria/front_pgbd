@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block title %}Agendar Refeição{% endblock %}
+
+{% block content %}
+    <h1>Agendar Refeição</h1>
+
+    <!--<h2>Cardápios Disponíveis</h2>
+    <ul>
+        {% for cardapio in cardapios %}
+            <li>{{ cardapio }}</li>
+        {% empty %}
+            <li>Não há cardápios disponíveis para este restaurante.</li>
+        {% endfor %}
+    </ul>-->
+
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-success">Agendar</button>
+    </form>
+
+    <a style="margin-top: 20px" href="{% url 'ver_agendamentos' %}"><button class="btn">Ver meus agendamentos</button></a>
+    <a style="margin-top: 20px" href="{% url 'ver_cardapio_semana' restaurante.id %}"><button class="btn">Ver Cardapio dessa Semana do {{restaurante.nome}} </button></a>
+{% endblock %}

@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+
+{% block title %}Cardápio da Semana{% endblock %}
+
+{% block content %}
+    <div class="content-container">
+        <h1>Cardápio da Semana do Restaurante {{ restaurante_nome.restaurante.nome }} | Campus {{ restaurante_nome.restaurante.campus }}</h1>
+
+        {% if cardapios_por_dia %}
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Dia</th>
+                            <th>Tipo</th>
+                            <th>Principal</th>
+                            <th>Acompanhamento</th>
+                            <th>Bebida</th>
+                            <th>Horário</th>
+                            <th>Valor (R$)</th>
+                            <th>Ação</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for dia, cardapios in cardapios_por_dia.items %}
+                            {% for cardapio_restaurante in cardapios %}
+                                <tr>
+                                    <td>{{ dia|date:"d/m/Y" }}</td>
+                                    <td>{{ cardapio_restaurante.cardapio.refeicao.nome }}</td>
+                                    <td>{{ cardapio_restaurante.cardapio.principal }}</td>
+                                    <td>{{ cardapio_restaurante.cardapio.acompanhamento }}</td>
+                                    <td>
+                                        {% if cardapio_restaurante.cardapio.bebida %}
+                                            {{ cardapio_restaurante.cardapio.bebida }}
+                                        {% else %}
+                                            Não informada
+                                        {% endif %}
+                                    </td>
+                                    <td>{{ cardapio_restaurante.cardapio.refeicao.horario_abertura }} - {{ cardapio_restaurante.cardapio.refeicao.horario_fechamento }}</td>
+                                    <td>{{ cardapio_restaurante.cardapio.refeicao.valor }}</td>
+                                    <td>
+                                        <form method="post" action="{% url 'agendar' restaurante_id=restaurante_nome.restaurante.id %}">
+                                            {% csrf_token %}
+                                            <input type="hidden" name="cardapio_agendado" value="{{ cardapio_restaurante.id }}">
+                                            <button type="submit" class="btn btn-success" style="margin-top: 0px">Agendar</button>
+                                        </form>
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                        {% empty %}
+                            <tr>
+                                <td colspan="8">Nenhum cardápio disponível para este dia.</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        {% else %}
+            <p>Nenhum cardápio disponível para esta semana.</p>
+        {% endif %}
+
+        <a href="{% url 'selecionar_restaurante_cardapio' %}" class="btn btn-secondary mt-3">Voltar à Seleção de Restaurante</a>
+    </div>
+{% endblock %}

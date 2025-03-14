@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block title %}Gerar Relatórios{% endblock %}
+
+{% block content %}
+<div class="content-container">
+    <h2>Gerar Relatórios</h2>
+    <form method="post" class="form">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-primary">Gerar relatório</button>
+    </form>
+
+    {% if agendamentos_feitos or porcentagem_uso or refeicao_mais_agendada %}
+        <div class="mt-4">
+            <h3>Resultado do Relatório</h3>
+            <p><strong>Agendamentos feitos:</strong> {{ agendamentos_feitos }}</p>
+            <p><strong>Porcentagem de uso:</strong> {{ porcentagem_uso }}%</p>
+            <p><strong>Refeição mais agendada:</strong> {{ refeicao_mais_agendada }}</p>
+        </div>
+    {% endif %}
+</div>
+{% endblock %}

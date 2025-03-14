@@ -1,0 +1,82 @@
+{% extends 'base.html' %}
+
+{% block title %}Meus Agendamentos{% endblock %}
+
+{% block content %}
+<h2>Refeições Agendadas</h2>
+
+{% if agendamentos %}
+    <table id="appointments-table">
+        <thead>
+            <tr>
+                <th>Data</th>
+                <th>Restaurante</th>
+                <th>Tipo de Refeição</th>
+                <th>Cardápio</th>
+                <th>Ação</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for agendamento in agendamentos %}
+                <tr class="appointment-item" data-agendamento-id="{{ agendamento.id }}">
+                    <td>{{ agendamento.data_agendamento|date:"d/m/Y" }}</td>
+                    <td>{{ agendamento.cardapio_agendado.restaurante.nome }}</td>
+                    <td>{{ agendamento.cardapio_agendado.cardapio.refeicao.nome }}</td>
+                    <td>{{ agendamento.cardapio_agendado.cardapio.principal }} {{ agendamento.cardapio_agendado.cardapio.acompanhamento }}</td>
+                    <td>
+                        <button class="btn btn-danger cancel-button">Cancelar</button>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% else %}
+    <p>Você não tem agendamentos registrados.</p>
+{% endif %}
+{% endblock %}
+
+{% block extra_scripts %}
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        console.log("Script carregado!"); // Debug
+        const buttons = document.querySelectorAll(".cancel-button");
+        buttons.forEach(button => {
+            button.addEventListener("click", function() {
+                cancelarAgendamento(this);
+            });
+        });
+    });
+
+    function cancelarAgendamento(button) {
+        const row = button.closest('tr');
+        const agendamentoId = row.dataset.agendamentoId;
+
+        if (!confirm('Você tem certeza de que deseja cancelar este agendamento?')) {
+            return;
+        }
+
+        fetch(`${window.location.origin}/a/cancelar/agendamento/${agendamentoId}/`, {
+            method: 'POST',
+            headers: {
+                'X-CSRFToken': '{{ csrf_token }}',
+                'Content-Type': 'application/json',
+            },
+        })
+        .then(response => {
+            return response.json();
+        })
+        .then(data => {
+            if (data.status === 'success') {
+                row.remove();
+                alert(data.message);
+            } else {
+                alert(data.message || 'Ocorreu um erro.');
+            }
+        })
+        .catch(error => {
+            console.error("Erro ao fazer requisição:", error);
+            alert('Erro de comunicação com o servidor.');
+        });
+    }
+</script>
+{% endblock %}

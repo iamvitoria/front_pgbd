@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block title %}Minha Carteira{% endblock %}
+
+{% block content %}
+    <h1>Minha Carteira</h1>
+
+    {% if carteira %}
+        <p><strong>Saldo Atual:</strong> R$ {{ carteira.saldo|floatformat:2 }}</p>
+
+        <h2>Histórico de Transações</h2>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Data</th>
+                    <th>Valor</th>
+                    <th>Tipo</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for transacao in carteira.transacao_set.all %}
+                    <tr>
+                        <td>{{ transacao.data|date:"d/m/Y" }}</td>
+                        <td>R$ {{ transacao.valor|floatformat:2 }}</td>
+                        <td>{% if transacao.is_entrada %}Entrada{% else %}Saída{% endif %}</td>
+                    </tr>
+                {% empty %}
+                    <tr>
+                        <td colspan="3">Nenhuma transação encontrada.</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <a href="{% url 'realizar_recarga' %}" class="btn btn-secondary">Realizar Recarga</a>
+    {% else %}
+        <p>Nenhuma carteira encontrada para o usuário.</p>
+        <a href="{% url 'realizar_recarga' %}" class="btn btn-primary">Criar Carteira</a>
+    {% endif %}
+
+{% endblock %}

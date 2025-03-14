@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block title %}Lista de Refeições{% endblock %}
+
+{% block content %}
+    <h1>Lista de Refeições</h1>
+    {% if refeicoes %}
+
+        <table class="table table-striped" >
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>Horário de Abertura</th>
+                    <th>Horário de Fechamento</th>
+                    <th>Valor (R$)</th>
+                    <th>Ativo</th>
+                    <th>Limite de Agendamentos</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for refeicao in refeicoes %}
+                    <tr>
+                        <td>{{ refeicao.get_nome_display }}</td>
+                        <td>{{ refeicao.horario_abertura|time:"H:i" }}</td>
+                        <td>{{ refeicao.horario_fechamento|time:"H:i" }}</td>
+                        <td>{{ refeicao.valor|floatformat:2 }}</td>
+                        <td>
+                            {% if refeicao.ativo %}
+                                <span class="badge bg-success">Sim</span>
+                            {% else %}
+                                <span class="badge bg-danger">Não</span>
+                            {% endif %}
+                        </td>
+                        <td><a href="{% url 'definir_limite_agendamentos' refeicao.id %}">{{ refeicao.limite_agendamentos }}</a></td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>Não há refeições cadastradas.</p>
+    {% endif %}
+
+{% endblock %}

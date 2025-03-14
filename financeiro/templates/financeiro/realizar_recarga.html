@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block title %}Realizar Recarga{% endblock %}
+
+{% block content %}
+    <h1>Realizar Recarga</h1>
+    <br>
+
+    <form method="post" class="recarga-form">
+        {% csrf_token %}
+        <div class="form-group">
+            {{ form.as_p }}
+        </div>
+        <button type="submit" class="btn btn-success" style="">Realizar Recarga</button>
+    </form>
+
+    {% if form.non_field_errors %}
+        <div class="form-errors" style="color: red;">
+            {{ form.non_field_errors }}
+        </div>
+    {% endif %}
+
+    <a href="{% url 'ver_carteira' %}" class="btn btn-secondary">Voltar para Minha Carteira</a>
+{% endblock %}

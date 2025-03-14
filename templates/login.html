@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - UFSM Digital</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <div class="logo-container">
+        <img src="{% static 'img/logo.png' %}" alt="Logo UFSM Digital" class="logo">
+    </div>
+
+    <div class="login-container">
+            {% block content %}
+
+            {% endblock %}
+    </div>
+
+</body>
+</html>

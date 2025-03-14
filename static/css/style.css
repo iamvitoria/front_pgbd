@@ -1,0 +1,343 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column; /* Organiza em coluna */
+    align-items: center; /* Centraliza horizontalmente */
+    height: 100vh;
+    background-color: #f4f4f9;
+}
+
+/* Logo acima do bloco */
+.logo-container {
+    margin-top: 100px;
+    margin-bottom: 50px;
+}
+
+.logo {
+    width: 570px; /* Ajusta o tamanho da logo */
+}
+
+/* Bloco de login */
+.login-container {
+    width: 510px; /* Ajusta a largura fixa */
+    padding: 30px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centraliza os campos verticalmente */
+    align-items: center; /* Centraliza os campos horizontalmente */
+    box-sizing: border-box; /* Inclui padding no cálculo do tamanho */
+}
+
+/* Formulário */
+.login-form {
+    width: 100%; /* Formulário ocupa toda a largura do bloco */
+    display: flex;
+    flex-direction: column;
+}
+
+/* Campos de entrada */
+.form-group {
+    margin-bottom: 20px;
+    width: 100%; /* Campos ocupam toda a largura */
+    text-align: center;
+}
+
+input, select {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+/* Botões */
+.btn {
+    padding: 8px 16px; /* Ajuste de padding para se adequar ao texto */
+    font-size: 14px;
+    color: white;
+    background-color: #6c757d;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    white-space: nowrap; /* Impede a quebra de linha no botão */
+    width: 100%; /* Faz o botão preencher toda a largura disponível */
+}
+
+.btn:hover {
+    opacity: 0.9;
+}
+
+
+/* Container principal */
+.container {
+    display: flex;
+    height: 100vh;
+}
+
+/* Menu lateral */
+.sidebar {
+    width: 250px; /* Largura da sidebar */
+    height: 100vh; /* Altura total da janela */
+    background-color: #6c757d; /* Cor da sidebar */
+    overflow-y: auto; /* Permite rolagem vertical */
+    overflow-x: hidden; /* Evita rolagem horizontal */
+    color: white; /* Cor do texto */
+    position: fixed; /* Fixa a sidebar no canto esquerdo */
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    box-sizing: border-box;
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+}
+
+.profile-section {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.profile-pic {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+/* Menu com rolagem estilizada */
+.menu {
+    flex-grow: 1; /* Para que o menu ocupe o restante do espaço disponível */
+    overflow-y: auto; /* Ativa a barra de rolagem vertical */
+    max-height: calc(100vh - 150px); /* Ajusta o tamanho do menu (menos o espaço do perfil) */
+}
+
+/* Barra de rolagem estilizada */
+.menu::-webkit-scrollbar {
+    width: 8px; /* Largura da barra */
+}
+
+.menu::-webkit-scrollbar-thumb {
+    background-color: #888; /* Cor da barra */
+}
+
+.menu::-webkit-scrollbar-thumb:hover {
+    background-color: #555; /* Cor ao passar o mouse */
+}
+
+.menu::-webkit-scrollbar-track {
+    background-color: #f4f4f4; /* Cor do fundo do trilho */
+}
+
+.menu ul {
+    list-style: none;
+    padding: 0;
+    width: 100%;
+}
+
+.menu ul li {
+    margin: 10px 0;
+}
+
+.menu ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 16px;
+    display: block;
+    padding: 10px 15px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.menu ul li a:hover {
+    background-color: #ccc;
+    opacity: 0.9;
+}
+
+/* Conteúdo principal */
+.main-content {
+    margin-left: 250px;
+    padding: 20px;
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: #f4f4f9;
+}
+
+.welcome-section {
+    text-align: center;
+}
+
+h1 {
+    font-size: 24px;
+    color: #333;
+}
+
+/* Ajusta largura e estilo de labels */
+form .form-group label {
+    display: block;
+    width: 100%; /* Ocupa o mesmo espaço que o campo */
+    font-family: Arial, sans-serif; /* Mesma fonte dos campos */
+    font-size: 16px; /* Altere conforme necessário */
+    margin-bottom: 8px;
+    color: #333; /* Cor harmoniosa */
+}
+
+/* Ajusta campos de seleção para a mesma largura que inputs de data */
+form .form-group select,
+form .form-group input[type="date"] {
+    width: 100%; /* Mesma largura */
+    padding: 8px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box; /* Garantir espaçamento interno correto */
+}
+
+/* Adiciona espaçamento entre os grupos */
+form .form-group {
+    margin-bottom: 16px;
+}
+
+/* Container para a lista de agendamentos */
+#appointments-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+#appointments-table th, #appointments-table td {
+    padding: 12px;
+    text-align: center;
+    border: 1px solid #ccc;
+}
+
+.appointment-item {
+    border: 1px solid #ccc; /* Borda cinza ao redor de cada agendamento */
+    margin-bottom: 10px; /* Espaço entre os agendamentos */
+    border-radius: 5px; /* Bordas arredondadas */
+}
+
+.appointment-item td {
+    background-color: #fff; /* Cor de fundo para as células */
+}
+
+/* Seção de preferências alimentares */
+.preference-section {
+    margin-bottom: 20px;
+    font-size: 16px;
+}
+
+.preference-section label {
+    display: inline-block;
+    margin-right: 20px;
+}
+
+/* QR Code */
+.qr-code-container {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.qr-code-container img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Botões */
+button {
+    display: inline-block; /* Permite que os botões fiquem lado a lado */
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #333; /* Cinza escuro padrão */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 0 5px; /* Espaço horizontal entre os botões */
+}
+
+button:hover {
+    background-color: #ccc; /* Cinza claro ao passar o mouse */
+    color: black; /* Ajusta a cor do texto para contraste */
+}
+
+/* Centraliza os botões no contêiner */
+.buttons {
+    display: flex; /* Torna os botões flexíveis */
+    justify-content: center; /* Centraliza os botões horizontalmente */
+    gap: 10px; /* Espaçamento consistente entre os botões */
+    margin-top: 20px; /* Espaço acima dos botões */
+}
+
+h2{
+    text-align: center;
+}
+
+.form-group textarea{
+    width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            height: 45px; /* Ajustado para o mesmo tamanho dos inputs */
+            resize: none; /* Impede redimensionamento */
+}
+
+        .preference-section {
+            display: flex;
+            flex-direction: column;  /* Coloca os checkboxes em uma coluna */
+            gap: 15px;  /* Espaçamento entre os checkboxes */
+        }
+
+        .preference-item {
+            display: flex;
+            align-items: center;  /* Alinha o texto com o checkbox */
+        }
+
+        .preference-item label {
+            font-size: 16px;  /* Ajusta o tamanho da fonte do label */
+            display: flex;
+            align-items: center;
+        }
+
+        .btn {
+            margin-top: 20px;  /* Espaço entre os checkboxes e o botão */
+            padding: 10px 20px;  /* Tamanho do botão */
+            background-color: #4CAF50;  /* Cor de fundo do botão */
+            color: white;  /* Cor do texto do botão */
+            border: none;
+            border-radius: 5px;  /* Bordas arredondadas */
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: #45a049;  /* Cor de fundo ao passar o mouse */
+        }
+
+.content-container {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    overflow: hidden;
+}
+
+.table-responsive {
+    overflow-x: auto;
+}
+
+
